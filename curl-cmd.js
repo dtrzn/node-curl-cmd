@@ -45,7 +45,10 @@ function args(o, opts) {
   // curl options
   if (opts.verbose) cmd.push('-v');
   if (opts.headers) cmd.push('-i');
-  if (opts.cookies) cmd.push('-c');
+  if (opts.cookies) {
+    cmd.push('-c');
+    cmd.push('/tmp/cookie');
+  }
 
   if (typeof opts.options === 'string')
     cmd.push(opts.options);

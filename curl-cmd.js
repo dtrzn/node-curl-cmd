@@ -46,7 +46,12 @@ function args(o, opts) {
   if (opts.verbose) cmd.push('-v');
   if (opts.headers) cmd.push('-i');
   if (opts.cookies) {
-    cmd.push('-c');
+    if (o.method == 'POST') {
+      cmd.push('-c');
+    }
+    else {
+      cmd.push('-b');
+    }
     cmd.push('/tmp/cookie');
   }
 

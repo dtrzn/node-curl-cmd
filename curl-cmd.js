@@ -25,6 +25,12 @@ function args(o, opts) {
     cmd.push(o.auth);
   }
 
+  // data
+  if (o.data) {
+    cmd.push('-d');
+    cmd.push(o.data);
+  }
+  
   // headers
   Object.keys(o.headers || {}).forEach(function(key) {
     var val = o.headers[key];
